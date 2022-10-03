@@ -85,15 +85,8 @@ class ProductController extends AbstractController
         /* $form->setData($product); */
         $form->handleRequest($request);
         if ($form->isSubmitted()) {
+            // dd($form->getData());
             $em->flush();
-
-            /*  $url = $urlGenerator->generate('product_show', [
-                'category_slug' => $product->getCategory()->getSlug(),
-                'slug' => $product->getSlug()
-            ]); */
-
-            /* $response = new RedirectResponse($url);
-            return $response; */
 
             return $this->redirectToRoute('product_show', [
                 'category_slug' => $product->getCategory()->getSlug(),
