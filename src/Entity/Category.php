@@ -8,6 +8,8 @@ use App\Repository\CategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 /**
@@ -24,6 +26,8 @@ class Category
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Entrez un nom de catégorie")
+     * @Assert\Length(min=3, minMessage="Ce champ doit contenir au moins 3 caratères")
      */
     private $name;
 
